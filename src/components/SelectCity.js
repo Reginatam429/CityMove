@@ -18,7 +18,7 @@ const SelectCity = (props) => {
             {props.cities &&
               props.cities.length > 0 &&
               props.cities.map((city) => {
-                console.log(city);
+                // console.log(city);
                 return (
                   <option key={city.city_id} value={city.city_id}>
                     {city.city_name}, {city.city_state}
@@ -27,9 +27,6 @@ const SelectCity = (props) => {
               })}
           </select>
         </label>
-
-        <br />
-        {/* <input type="submit" value="Submit" /> */}
       </form>
     </div>
   );
