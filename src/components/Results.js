@@ -1,15 +1,19 @@
 import React from 'react';
+import Col from './Col';
 
-function Results() {
+const Results = (props) => {
     return (
         <div>
         <header>
+            <h1>Let's Compare Cities:</h1>
             <p>
-                Results
+                So you want to move from {props.cityFrom.city_name} to {props.cityTo.city_name}? Here are some things to consider.
             </p>
         </header>
+        <Col />
+
         </div>
     );
-}
+    }
 
 export default Results;

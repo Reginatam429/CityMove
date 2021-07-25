@@ -1,7 +1,7 @@
 import React from 'react';
 import SelectCity from './SelectCity';
 
-function Homepage(props) {
+const Homepage = (props) => {
 
     return (
         <div>

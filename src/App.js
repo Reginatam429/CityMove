@@ -1,10 +1,11 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import Header from "./components/Header";
 import Homepage from "./components/Homepage";
 import Submit from "./components/Submit";
-// import Results from './components/Results';
+import Results from './components/Results';
 import Footer from "./components/Footer";
 
 function App() {
@@ -43,20 +44,31 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Header />
-      <Homepage 
-        cities={cities} 
-        cityFrom={cityFrom} 
-        setCityFrom={setCityFrom} 
-        cityTo={cityTo} 
-        setCityTo={setCityTo} 
-        />
-      <br />
-      <Submit handleSubmit={handleSubmit} />
-      {/* <Results /> */}
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+          <div className="content">
+            <Route exact path="/">
+              <Homepage 
+                cities={cities} 
+                cityFrom={cityFrom} 
+                setCityFrom={setCityFrom} 
+                cityTo={cityTo} 
+                setCityTo={setCityTo} 
+                />
+              <br/>
+              <Submit handleSubmit={handleSubmit} />
+            </Route>
+            <Route path="/results">
+              <Results 
+                cityFrom={cityFrom}
+                cityTo={cityTo}
+              />
+            </Route>
+          </div>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
