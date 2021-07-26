@@ -1,10 +1,11 @@
 import React from "react";
 import Col from "./Col";
+import Crimerate from "./Crimerate";
 
 const Results = (props) => {
   console.log(props);
   return (
-    <div>
+    <div className="resultsContent">
       <header className="center">
         <h1>Let's Compare Cities:</h1>
         <p>
@@ -17,6 +18,12 @@ const Results = (props) => {
         cityTo={props.cityTo}
         colsTo={props.colsTo}
         colsFrom={props.colsFrom}
+      />
+      <Crimerate
+        cityFrom={props.cityFrom}
+        cityTo={props.cityTo}
+        crimeratesTo={props.crimeratesTo}
+        crimeratesFrom={props.crimeratesFrom}
       />
     </div>
   );
