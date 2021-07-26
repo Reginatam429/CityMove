@@ -107,14 +107,16 @@ function App() {
               </div>
             </Route>
             <Route path="/results">
-              <Results
-                cityFrom={cityFrom}
-                cityTo={cityTo}
-                colsTo={colsTo}
-                colsFrom={colsFrom}
-                crimeratesTo={crimeratesTo}
-                crimeratesFrom={crimeratesFrom}
-              />
+              <div className="results">
+                <Results
+                  cityFrom={cityFrom}
+                  cityTo={cityTo}
+                  colsTo={colsTo}
+                  colsFrom={colsFrom}
+                  crimeratesTo={crimeratesTo}
+                  crimeratesFrom={crimeratesFrom}
+                />
+              </div>
             </Route>
           </Switch>
         </div>

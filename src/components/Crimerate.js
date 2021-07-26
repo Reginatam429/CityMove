@@ -9,9 +9,14 @@ const Crimerate = (props) => {
       <header className="center">
         <h1>Crime Rate:</h1>
         <p>
-          When considering a move to another city, one of the things you should
-          think about is the changes to your cost of living in
-          {props.cityTo.city_name}.
+          Crime and Safety should be considered. Crime Index Numbers were taken
+          from Numbeo. These numbers are an estimation of overall level of
+          crime. Crime levels lower than 20 are very low, crime levels between
+          20 and 40 are low, crime levels between 40 and 60 are moderate, crime
+          levels between 60 and 80 are high and finally crime levels higher than
+          80 are very high. Safety index is the opposite of crime index. If the
+          city has a high safety index, it is considered very safe. Note: data
+          is updated from 2021 Mid-Year.
         </p>
       </header>
       <br />

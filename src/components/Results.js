@@ -5,7 +5,7 @@ import Crimerate from "./Crimerate";
 const Results = (props) => {
   console.log(props);
   return (
-    <div>
+    <div className="resultsContent">
       <header className="center">
         <h1>Let's Compare Cities:</h1>
         <p>
