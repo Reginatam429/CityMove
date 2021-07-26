@@ -11,17 +11,21 @@ import Footer from "./components/Footer";
 function App() {
   const apiUrl = "https://citymove-api.herokuapp.com";
   const [cities, setCities] = useState([]);
+  const [cityFrom, setCityFrom] = useState("");
+  const [cityTo, setCityTo] = useState("");
+  const [cols, setCols] = useState([]);
+  const [isRedirecting, setIsRedirecting] = useState(false);
 
-  async function fetchData() {
-    const cities = await getCities();
-    setCities(cities);
-    setCityFrom(cities[0]);
-    setCityTo(cities[0]);
-  }
 
   useEffect(() => {
-    fetchData();
+    getCityDropDown();
   }, []);
+
+  async function getCityDropDown() {
+
+    const cities = await getCities();
+    setCities(cities);
+  }
 
   const getCities = async () => {
     return axios
@@ -33,22 +37,36 @@ function App() {
         console.log("error!", e);
       });
   };
-  // Submit
-  const [cityFrom, setCityFrom] = useState("");
-  const [cityTo, setCityTo] = useState("");
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(e);
-    console.log(`Cities picked: ${cityFrom.city_name} and ${cityTo.city_name}`);
+  const getCols = async (id) => {
+    return axios
+      .get(`${apiUrl}/cities/${id}/cols`)
+      .then((res) => {
+        console.log(res.data);
+        return res.data;
+      })
+      .catch((e) => {
+        console.log("error!", e);
+      });
   };
+  // Submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const colsData = await getCols(cityTo.city_id);
+    setCols(colsData);
+    setIsRedirecting(true);
+  };
+
+  console.log(cols);
+  console.log(isRedirecting);
 
   return (
     <Router>
       <div className="App">
         <Header />
         <div className="content">
-          <Route exact path="/">
-            <div className="homepage">
+
+          <Switch>
+            <Route exact path="/">
               <Homepage
                 cities={cities}
                 cityFrom={cityFrom}
@@ -57,12 +75,21 @@ function App() {
                 setCityTo={setCityTo}
               />
               <br />
-              <Submit handleSubmit={handleSubmit} />
-            </div>
-          </Route>
-          <Route path="/results">
-            <Results cityFrom={cityFrom} cityTo={cityTo} />
-          </Route>
+              <Submit
+
+                cityFrom={cityFrom}
+                setCityFrom={setCityFrom}
+                cityTo={cityTo}
+                handleSubmit={handleSubmit}
+                isRedirecting={isRedirecting}
+                setIsRedirecting={setIsRedirecting}
+              />
+            </Route>
+            <Route path="/results">
+              <Results cityFrom={cityFrom} cityTo={cityTo} cols={cols} />
+            </Route>
+          </Switch>
+
         </div>
         <Footer />
       </div>
