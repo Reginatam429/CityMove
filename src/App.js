@@ -2,16 +2,15 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import Homepage from "./components/Homepage";
 import Submit from "./components/Submit";
-import Results from './components/Results';
+import Results from "./components/Results";
 import Footer from "./components/Footer";
 
 function App() {
   const apiUrl = "https://citymove-api.herokuapp.com";
   const [cities, setCities] = useState([]);
-
 
   async function fetchData() {
     const cities = await getCities();
@@ -47,25 +46,24 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-          <div className="content">
-            <Route exact path="/">
-              <Homepage 
-                cities={cities} 
-                cityFrom={cityFrom} 
-                setCityFrom={setCityFrom} 
-                cityTo={cityTo} 
-                setCityTo={setCityTo} 
-                />
-              <br/>
-              <Submit handleSubmit={handleSubmit} />
-            </Route>
-            <Route path="/results">
-              <Results 
+        <div className="content">
+          <Route exact path="/">
+            <div className="homepage">
+              <Homepage
+                cities={cities}
                 cityFrom={cityFrom}
+                setCityFrom={setCityFrom}
                 cityTo={cityTo}
+                setCityTo={setCityTo}
               />
-            </Route>
-          </div>
+              <br />
+              <Submit handleSubmit={handleSubmit} />
+            </div>
+          </Route>
+          <Route path="/results">
+            <Results cityFrom={cityFrom} cityTo={cityTo} />
+          </Route>
+        </div>
         <Footer />
       </div>
     </Router>
