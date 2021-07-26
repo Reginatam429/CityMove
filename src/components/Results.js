@@ -2,6 +2,7 @@ import React from "react";
 import Col from "./Col";
 
 const Results = (props) => {
+  console.log(props);
   return (
     <div>
       <header>

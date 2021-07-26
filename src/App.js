@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import Header from "./components/Header";
 import Homepage from "./components/Homepage";
@@ -14,18 +14,15 @@ function App() {
   const [cityFrom, setCityFrom] = useState("");
   const [cityTo, setCityTo] = useState("");
   const [cols, setCols] = useState([]);
+  const [isRedirecting, setIsRedirecting] = useState(false);
 
   useEffect(() => {
-    fetchData();
+    getCityDropDown();
   }, []);
 
-  async function fetchData() {
+  async function getCityDropDown() {
     const cities = await getCities();
-    const cols = await getCols(cityTo.city_id);
     setCities(cities);
-    setCityFrom(cities[0]);
-    setCityTo(cities[0]);
-    setCols(cols);
   }
 
   const getCities = async () => {
@@ -50,34 +47,43 @@ function App() {
       });
   };
   // Submit
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(e);
-    console.log(`Cities picked: ${cityFrom.city_name} and ${cityTo.city_name}`);
-    console.log(cols);
+    const colsData = await getCols(cityTo.city_id);
+    setCols(colsData);
+    setIsRedirecting(true);
   };
 
   console.log(cols);
+  console.log(isRedirecting);
 
   return (
     <Router>
       <div className="App">
         <Header />
         <div className="content">
-          <Route exact path="/">
-            <Homepage
-              cities={cities}
-              cityFrom={cityFrom}
-              setCityFrom={setCityFrom}
-              cityTo={cityTo}
-              setCityTo={setCityTo}
-            />
-            <br />
-            <Submit handleSubmit={handleSubmit} />
-          </Route>
-          <Route path="/results">
-            <Results cityFrom={cityFrom} cityTo={cityTo} cols={cols} />
-          </Route>
+          <Switch>
+            <Route exact path="/">
+              <Homepage
+                cities={cities}
+                cityFrom={cityFrom}
+                setCityFrom={setCityFrom}
+                cityTo={cityTo}
+                setCityTo={setCityTo}
+              />
+              <br />
+              <Submit
+                cityFrom={cityFrom}
+                cityTo={cityTo}
+                handleSubmit={handleSubmit}
+                isRedirecting={isRedirecting}
+                setIsRedirecting={setIsRedirecting}
+              />
+            </Route>
+            <Route path="/results">
+              <Results cityFrom={cityFrom} cityTo={cityTo} cols={cols} />
+            </Route>
+          </Switch>
         </div>
         <Footer />
       </div>
