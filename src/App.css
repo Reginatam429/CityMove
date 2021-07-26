@@ -8,8 +8,8 @@
 
 /* Homepage */
 .homepage {
-  background: url("./images/hp_background.png");
-  background-position: center;
+  background: url("./images/hp_background.png") no-repeat center fixed;
+  /* background-position: center; */
   background-size: cover;
   height: 100vh;
   width: 100%;
@@ -25,6 +25,8 @@
 
 .hpwords {
   color: white;
+  font-weight: bold;
+  font-size: 25px;
 }
 
 .flex-container {
@@ -42,6 +44,21 @@
 .select-box {
   border-radius: 0;
 }
+
+.submitbtn {
+  background-color: #456ace;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  width: 20%;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 12px;
+}
+
 /* footer */
 .footer {
   background: rgb(73, 78, 83);

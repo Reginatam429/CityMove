@@ -61,25 +61,28 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <div className="content homepage">
+        <div className="content">
           <Switch>
             <Route exact path="/">
-              <Homepage
-                cities={cities}
-                cityFrom={cityFrom}
-                setCityFrom={setCityFrom}
-                cityTo={cityTo}
-                setCityTo={setCityTo}
-              />
-              <br />
-              <Submit
-                cityFrom={cityFrom}
-                setCityFrom={setCityFrom}
-                cityTo={cityTo}
-                handleSubmit={handleSubmit}
-                isRedirecting={isRedirecting}
-                setIsRedirecting={setIsRedirecting}
-              />
+              <div className="homepage">
+                <Homepage
+                  cities={cities}
+                  cityFrom={cityFrom}
+                  setCityFrom={setCityFrom}
+                  cityTo={cityTo}
+                  setCityTo={setCityTo}
+                />
+                <br />
+                <br />
+                <Submit
+                  cityFrom={cityFrom}
+                  setCityFrom={setCityFrom}
+                  cityTo={cityTo}
+                  handleSubmit={handleSubmit}
+                  isRedirecting={isRedirecting}
+                  setIsRedirecting={setIsRedirecting}
+                />
+              </div>
             </Route>
             <Route path="/results">
               <Results cityFrom={cityFrom} cityTo={cityTo} cols={cols} />

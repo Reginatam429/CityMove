@@ -11,6 +11,7 @@ function Submit(props) {
     <div>
       <form onSubmit={props.handleSubmit}>
         <button
+          className="submitbtn"
           disabled={
             props.cityFrom.length === 0 || props.cityTo.length === 0
               ? true
