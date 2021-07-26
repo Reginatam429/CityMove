@@ -6,6 +6,7 @@
   font-family: "Roboto", sans-serif;
 }
 
+/* Homepage */
 .homepage {
   background: url("./images/hp_background.png");
   background-position: center;
@@ -16,6 +17,31 @@
   overflow: hidden;
 }
 
+.title {
+  font-size: 60px;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+.hpwords {
+  color: white;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-child {
+  flex: 1;
+}
+
+.flex-child:first-child {
+  margin-right: 20px;
+}
+
+.select-box {
+  border-radius: 0;
+}
 /* footer */
 .footer {
   background: rgb(73, 78, 83);

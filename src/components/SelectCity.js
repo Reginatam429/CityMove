@@ -12,24 +12,22 @@ const SelectCity = (props) => {
   return (
     <div>
       <form>
-        <label>
-          Choose city:
-          <select onChange={onSelectChanged} value={props.city.city_id}>
-            {props.cities &&
-              props.cities.length > 0 &&
-              props.cities.map((city) => {
-                console.log(city);
-                return (
-                  <option key={city.city_id} value={city.city_id}>
-                    {city.city_name}, {city.city_state}
-                  </option>
-                );
-              })}
-          </select>
-        </label>
-
-        <br />
-        {/* <input type="submit" value="Submit" /> */}
+        <select
+          className="select-box"
+          onChange={onSelectChanged}
+          value={props.city.city_id}
+        >
+          {props.cities &&
+            props.cities.length > 0 &&
+            props.cities.map((city) => {
+              console.log(city);
+              return (
+                <option key={city.city_id} value={city.city_id}>
+                  {city.city_name}, {city.city_state}
+                </option>
+              );
+            })}
+        </select>
       </form>
     </div>
   );
