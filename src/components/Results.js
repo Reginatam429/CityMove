@@ -1,5 +1,6 @@
 import React from "react";
 import Col from "./Col";
+import Crimerate from "./Crimerate";
 
 const Results = (props) => {
   console.log(props);
@@ -17,6 +18,12 @@ const Results = (props) => {
         cityTo={props.cityTo}
         colsTo={props.colsTo}
         colsFrom={props.colsFrom}
+      />
+      <Crimerate
+        cityFrom={props.cityFrom}
+        cityTo={props.cityTo}
+        crimeratesTo={props.crimeratesTo}
+        crimeratesFrom={props.crimeratesFrom}
       />
     </div>
   );
