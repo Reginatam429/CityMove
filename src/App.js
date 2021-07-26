@@ -6,6 +6,7 @@ import Header from "./components/Header/Header";
 import Homepage from "./components/Homepage";
 import Submit from "./components/Submit";
 import Results from "./components/Results";
+import About from "./components/About";
 import Footer from "./components/Footer";
 
 function App() {
@@ -116,6 +117,11 @@ function App() {
                   crimeratesTo={crimeratesTo}
                   crimeratesFrom={crimeratesFrom}
                 />
+              </div>
+            </Route>
+            <Route path="/about">
+              <div className="about">
+                <About />
               </div>
             </Route>
           </Switch>
