@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,6 +7,7 @@
 
 /* Homepage */
 .homepage {
+  text-align: center;
   background: url("./images/hp_background.png") no-repeat center fixed;
   /* background-position: center; */
   background-size: cover;
@@ -57,6 +57,14 @@
   font-size: 16px;
   margin: 4px 2px;
   border-radius: 12px;
+}
+
+/* Results */
+.center {
+  text-align: center;
+}
+.cityCol {
+  text-align: left;
 }
 
 /* footer */

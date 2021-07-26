@@ -13,7 +13,8 @@ function App() {
   const [cities, setCities] = useState([]);
   const [cityFrom, setCityFrom] = useState("");
   const [cityTo, setCityTo] = useState("");
-  const [cols, setCols] = useState([]);
+  const [colsTo, setColsTo] = useState([]);
+  const [colsFrom, setColsFrom] = useState([]);
   const [isRedirecting, setIsRedirecting] = useState(false);
 
   useEffect(() => {
@@ -49,12 +50,14 @@ function App() {
   // Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const colsData = await getCols(cityTo.city_id);
-    setCols(colsData);
+    const colsToData = await getCols(cityTo.city_id);
+    const colsFromData = await getCols(cityFrom.city_id);
+    setColsTo(colsToData);
+    setColsFrom(colsFromData);
     setIsRedirecting(true);
   };
 
-  console.log(cols);
+  console.log(colsTo);
   console.log(isRedirecting);
 
   return (
@@ -85,7 +88,12 @@ function App() {
               </div>
             </Route>
             <Route path="/results">
-              <Results cityFrom={cityFrom} cityTo={cityTo} cols={cols} />
+              <Results
+                cityFrom={cityFrom}
+                cityTo={cityTo}
+                colsTo={colsTo}
+                colsFrom={colsFrom}
+              />
             </Route>
           </Switch>
         </div>

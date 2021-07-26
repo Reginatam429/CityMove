@@ -1,11 +1,12 @@
 import React from "react";
 
 const Col = (props) => {
-  console.log(props.cols.col[0]);
-  const col = props.cols.col[0];
+  //   console.log(props.colsTo.col[0]);
+  const colTo = props.colsTo.col[0];
+  const colFrom = props.colsFrom.col[0];
   return (
     <div>
-      <header>
+      <header className="center">
         <h1>Cost of Living:</h1>
         <p>
           When considering a move to another city, one of the things you should
@@ -13,12 +14,36 @@ const Col = (props) => {
           {props.cityTo.city_name}.
         </p>
       </header>
-      <p>A gallon of milk: ${col.milk_cost}</p>
-      <p>One-way Ticket (Local Transport): ${col.transport_ticket}</p>
-      <p>Gasoline (1 gallon): ${col.gas}</p>
-      <p>Basic Utilities for 915 sq ft Apartment: ${col.basic_utilities}</p>
-      <p>Monthly Rent for a 1 bedroom apt in City Centre: ${col.rent}</p>
-      <p>Average Monthly Net Salary (After Tax): ${col.avg_monthly_salary}</p>
+      <br />
+      <div className="flex-container">
+        <div className="leftbox cityCol">
+          <h3>Costs</h3>
+          <p>A gallon of milk:</p>
+          <p>One-way Ticket (Local Transport):</p>
+          <p>Gasoline (1 gallon):</p>
+          <p>Basic Utilities for 915 sq ft Apartment:</p>
+          <p>Monthly Rent for a 1 bedroom apt in City Centre:</p>
+          <p>Average Monthly Net Salary (After Tax):</p>
+        </div>
+        <div className="flex-child center">
+          <h3>{props.cityFrom.city_name}</h3>
+          <p>${colFrom.milk_cost}</p>
+          <p>${colFrom.transport_ticket}</p>
+          <p>${colFrom.gas}</p>
+          <p>${colFrom.basic_utilities}</p>
+          <p>${colFrom.rent}</p>
+          <p>${colFrom.avg_monthly_salary}</p>
+        </div>
+        <div className="flex-child center">
+          <h3>{props.cityTo.city_name}</h3>
+          <p>${colTo.milk_cost}</p>
+          <p>${colTo.transport_ticket}</p>
+          <p>${colTo.gas}</p>
+          <p>${colTo.basic_utilities}</p>
+          <p>${colTo.rent}</p>
+          <p>${colTo.avg_monthly_salary}</p>
+        </div>
+      </div>
     </div>
   );
 };
