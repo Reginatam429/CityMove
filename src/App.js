@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import Homepage from "./components/Homepage";
 import Submit from "./components/Submit";
 import Results from "./components/Results";
@@ -16,11 +16,13 @@ function App() {
   const [cols, setCols] = useState([]);
   const [isRedirecting, setIsRedirecting] = useState(false);
 
+
   useEffect(() => {
     getCityDropDown();
   }, []);
 
   async function getCityDropDown() {
+
     const cities = await getCities();
     setCities(cities);
   }
@@ -62,6 +64,7 @@ function App() {
       <div className="App">
         <Header />
         <div className="content">
+
           <Switch>
             <Route exact path="/">
               <Homepage
@@ -73,7 +76,9 @@ function App() {
               />
               <br />
               <Submit
+
                 cityFrom={cityFrom}
+                setCityFrom={setCityFrom}
                 cityTo={cityTo}
                 handleSubmit={handleSubmit}
                 isRedirecting={isRedirecting}
@@ -84,6 +89,7 @@ function App() {
               <Results cityFrom={cityFrom} cityTo={cityTo} cols={cols} />
             </Route>
           </Switch>
+
         </div>
         <Footer />
       </div>
