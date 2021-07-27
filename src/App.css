@@ -72,8 +72,33 @@
 }
 
 .resultsContent {
-  margin: 50px 150px 100px 150px;
+  /* margin: 50px 150px 100px 150px;
+  max-width: 800px;
+  display: inline-block; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
 }
+
+.crimerate {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10px 200px 10px 200px;
+}
+.attraction-title {
+  text-decoration: underline;
+}
+
+.attraction-description {
+  justify-content: center;
+  /* width: 500px; */
+  margin: 10px 200px 10px 200px;
+}
+
 /* footer */
 .footer {
   background: rgb(73, 78, 83);

@@ -1,11 +1,10 @@
 import React from "react";
 
 const Crimerate = (props) => {
-  console.log(props.crimeratesTo);
   const crimerateTo = props.crimeratesTo.crimerate[0];
   const crimerateFrom = props.crimeratesFrom.crimerate[0];
   return (
-    <div>
+    <div className="crimerate">
       <header className="center">
         <h1>Crime Rate:</h1>
         <p>

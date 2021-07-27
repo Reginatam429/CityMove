@@ -18,6 +18,7 @@ function App() {
   const [colsFrom, setColsFrom] = useState([]);
   const [crimeratesTo, setCrimeratesTo] = useState([]);
   const [crimeratesFrom, setCrimeratesFrom] = useState([]);
+  const [attractions, setAttractions] = useState([]);
   const [isRedirecting, setIsRedirecting] = useState(false);
 
   useEffect(() => {
@@ -64,6 +65,17 @@ function App() {
       });
   };
 
+  const getAttractions = async (id) => {
+    return axios
+      .get(`${apiUrl}/cities/${id}/attractions`)
+      .then((res) => {
+        console.log(res.data);
+        return res.data;
+      })
+      .catch((e) => {
+        console.log("error!", e);
+      });
+  };
   // Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -71,14 +83,14 @@ function App() {
     const colsFromData = await getCols(cityFrom.city_id);
     const crimeratesToData = await getCrimerates(cityTo.city_id);
     const crimeratesFromData = await getCrimerates(cityFrom.city_id);
+    const attractionsData = await getAttractions(cityTo.city_id);
     setColsTo(colsToData);
     setColsFrom(colsFromData);
     setCrimeratesTo(crimeratesToData);
     setCrimeratesFrom(crimeratesFromData);
+    setAttractions(attractionsData);
     setIsRedirecting(true);
   };
-
-  // console.log(isRedirecting);
 
   return (
     <Router>
@@ -116,6 +128,8 @@ function App() {
                   colsFrom={colsFrom}
                   crimeratesTo={crimeratesTo}
                   crimeratesFrom={crimeratesFrom}
+                  attractions={attractions}
+                />
                 />
               </div>
             </Route>
