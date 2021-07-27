@@ -32,7 +32,7 @@ const AttractionList = (props) => {
                   className="attraction-image"
                 />
 
-                <p className="attraction-description">
+                <p className="attraction-description resultsp">
                   {attraction.description}
                 </p>
 

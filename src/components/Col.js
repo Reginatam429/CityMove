@@ -31,7 +31,7 @@ const Col = (props) => {
           <p>${colFrom.transport_ticket}</p>
           <p>${colFrom.gas}</p>
           <p>${colFrom.basic_utilities}</p>
-          <p>${colFrom.rent}</p>
+          <p>${colFrom.rent}</p>git
           <p>${colFrom.avg_monthly_salary}</p>
         </div>
         <div className="flex-child center">
