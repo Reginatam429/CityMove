@@ -6,7 +6,7 @@ import Attraction from "./Attraction";
 const Results = (props) => {
   console.log(props);
   return (
-    <div className="resultsContent">
+    <div className="resultsContent ">
       <header className="center">
         <h1>Let's Compare Cities:</h1>
         <p>

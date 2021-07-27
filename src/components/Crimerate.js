@@ -4,10 +4,11 @@ const Crimerate = (props) => {
   const crimerateTo = props.crimeratesTo.crimerate[0];
   const crimerateFrom = props.crimeratesFrom.crimerate[0];
   return (
-    <div className="crimerate">
+    // <div className="crimerate">
+    <div>
       <header className="center">
         <h1>Crime Rate:</h1>
-        <p>
+        <p className="resultp">
           Crime and Safety should be considered. Crime Index Numbers were taken
           from Numbeo. These numbers are an estimation of overall level of
           crime. Crime levels lower than 20 are very low, crime levels between

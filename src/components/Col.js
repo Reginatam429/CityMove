@@ -8,7 +8,7 @@ const Col = (props) => {
     <div>
       <header className="center">
         <h1>Cost of Living:</h1>
-        <p>
+        <p className="resultp">
           When considering a move to another city, one of the things you should
           think about is the changes to your cost of living in
           {props.cityTo.city_name}.
