@@ -11,7 +11,6 @@ const Col = (props) => {
     colFrom.gas,
     colFrom.basic_utilities,
     colFrom.rent,
-    colFrom.avg_monthly_salary,
   ];
 
   const colCompare = (colTo, index) => {
@@ -25,6 +24,23 @@ const Col = (props) => {
       return (
         <span>
           {colTo} <FaArrowDown color="green" />
+        </span>
+      );
+    } else {
+      return colTo;
+    }
+  };
+  const salaryCompare = (colTo) => {
+    if (parseInt(colTo) > colFrom.avg_monthly_salary) {
+      return (
+        <span>
+          {colTo} <FaArrowUp color="green" />
+        </span>
+      );
+    } else if (parseInt(colTo) < colFrom.avg_monthly_salary) {
+      return (
+        <span>
+          {colTo} <FaArrowDown color="red" />
         </span>
       );
     } else {
@@ -69,7 +85,7 @@ const Col = (props) => {
           <p>${colCompare(colTo.gas, 2)}</p>
           <p>${colCompare(colTo.basic_utilities, 3)}</p>
           <p>${colCompare(colTo.rent, 4)}</p>
-          <p>${colCompare(colTo.avg_monthly_salary, 5)}</p>
+          <p>${salaryCompare(colTo.avg_monthly_salary)}</p>
         </div>
       </div>
     </div>
