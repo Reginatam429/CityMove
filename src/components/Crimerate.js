@@ -1,10 +1,46 @@
 import React from "react";
+import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
 const Crimerate = (props) => {
   const crimerateTo = props.crimeratesTo.crimerate[0];
   const crimerateFrom = props.crimeratesFrom.crimerate[0];
+
+  const crimeCompare = (crime) => {
+    if (parseInt(crime) > crimerateFrom.crime_index) {
+      return (
+        <span>
+          {crime} <FaArrowUp color="red" />
+        </span>
+      );
+    } else if (parseInt(crime) < crimerateFrom.crime_index) {
+      return (
+        <span>
+          {crime} <FaArrowDown color="green" />
+        </span>
+      );
+    } else {
+      return crime;
+    }
+  };
+
+  const safetyCompare = (safety) => {
+    if (parseInt(safety) > crimerateFrom.safety_index) {
+      return (
+        <span>
+          {safety} <FaArrowUp color="green" />
+        </span>
+      );
+    } else if (parseInt(safety) < crimerateFrom.safety_index) {
+      return (
+        <span>
+          {safety} <FaArrowDown color="red" />
+        </span>
+      );
+    } else {
+      return safety;
+    }
+  };
   return (
-    // <div className="crimerate">
     <div>
       <header className="center">
         <h1>Crime Rate:</h1>
@@ -33,8 +69,8 @@ const Crimerate = (props) => {
         </div>
         <div className="flex-child center">
           <h3>{props.cityTo.city_name}</h3>
-          <p>{crimerateTo.crime_index}</p>
-          <p>{crimerateTo.safety_index}</p>
+          <p>{crimeCompare(crimerateTo.crime_index)}</p>
+          <p>{safetyCompare(crimerateTo.safety_index)}</p>
         </div>
       </div>
     </div>

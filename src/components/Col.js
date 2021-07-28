@@ -1,9 +1,37 @@
 import React from "react";
+import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
 const Col = (props) => {
-  //   console.log(props.colsTo.col[0]);
   const colTo = props.colsTo.col[0];
   const colFrom = props.colsFrom.col[0];
+
+  const colFromList = [
+    colFrom.milk_cost,
+    colFrom.transport_ticket,
+    colFrom.gas,
+    colFrom.basic_utilities,
+    colFrom.rent,
+    colFrom.avg_monthly_salary,
+  ];
+
+  const colCompare = (colTo, index) => {
+    if (parseInt(colTo) > colFromList[index]) {
+      return (
+        <span>
+          {colTo} <FaArrowUp color="red" />
+        </span>
+      );
+    } else if (parseInt(colTo) < colFromList[index]) {
+      return (
+        <span>
+          {colTo} <FaArrowDown color="green" />
+        </span>
+      );
+    } else {
+      return colTo;
+    }
+  };
+  console.log(colCompare(colTo.milk_cost, 0));
   return (
     <div>
       <header className="center">
@@ -18,7 +46,7 @@ const Col = (props) => {
       <div className="flex-container">
         <div className="leftbox cityCol">
           <h3>Costs</h3>
-          <p>A gallon of milk:</p>
+          <p>A gallon of milk: </p>
           <p>One-way Ticket (Local Transport):</p>
           <p>Gasoline (1 gallon):</p>
           <p>Basic Utilities for 915 sq ft Apartment:</p>
@@ -27,21 +55,21 @@ const Col = (props) => {
         </div>
         <div className="flex-child center">
           <h3>{props.cityFrom.city_name}</h3>
-          <p>${colFrom.milk_cost}</p>
+          <p>${colFrom.milk_cost} </p>
           <p>${colFrom.transport_ticket}</p>
           <p>${colFrom.gas}</p>
           <p>${colFrom.basic_utilities}</p>
-          <p>${colFrom.rent}</p>git
+          <p>${colFrom.rent}</p>
           <p>${colFrom.avg_monthly_salary}</p>
         </div>
         <div className="flex-child center">
           <h3>{props.cityTo.city_name}</h3>
-          <p>${colTo.milk_cost}</p>
-          <p>${colTo.transport_ticket}</p>
-          <p>${colTo.gas}</p>
-          <p>${colTo.basic_utilities}</p>
-          <p>${colTo.rent}</p>
-          <p>${colTo.avg_monthly_salary}</p>
+          <p>${colCompare(colTo.milk_cost, 0)}</p>
+          <p>${colCompare(colTo.transport_ticket, 1)}</p>
+          <p>${colCompare(colTo.gas, 2)}</p>
+          <p>${colCompare(colTo.basic_utilities, 3)}</p>
+          <p>${colCompare(colTo.rent, 4)}</p>
+          <p>${colCompare(colTo.avg_monthly_salary, 5)}</p>
         </div>
       </div>
     </div>
