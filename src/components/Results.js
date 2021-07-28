@@ -8,7 +8,7 @@ const Results = (props) => {
   return (
     <div className="resultsContent ">
       <header className="center">
-        <h1>Let's Compare Cities:</h1>
+        <h1>Let's Compare Cities</h1>
         <p>
           So you want to move from {props.cityFrom.city_name} to{" "}
           {props.cityTo.city_name}? Here are some things to consider.

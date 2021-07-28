@@ -21,7 +21,10 @@ const Header = () => {
 
   return (
     <nav className="header">
-      <div className="logo">CityMove</div>
+      <div className="logo">
+        City
+        <span style={{ color: "#01aacd" }}>Move</span>
+      </div>
       <div className="menu-icon" onClick={handleClick}>
         <i className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
       </div>

@@ -8,7 +8,7 @@ const Attraction = (props) => {
   return (
     <div className="attraction">
       <header className="center">
-        <h1>{props.cityTo.city_name} Attractions:</h1>
+        <h1>{props.cityTo.city_name} Attractions</h1>
         <p>Check out these fun attractions in {props.cityTo.city_name}!</p>
       </header>
       <br />

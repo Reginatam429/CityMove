@@ -43,7 +43,7 @@ const Crimerate = (props) => {
   return (
     <div>
       <header className="center">
-        <h1>Crime Rate:</h1>
+        <h1>Crime Rate</h1>
         <p className="resultp">
           Crime and Safety should be considered. Crime Index Numbers were taken
           from Numbeo. These numbers are an estimation of overall level of

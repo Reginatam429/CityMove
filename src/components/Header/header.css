@@ -1,6 +1,6 @@
 /* header */
 .header {
-  background: rgb(143, 143, 143);
+  background: rgb(110, 110, 110);
   color: white;
   top: 0;
   left: 0;
@@ -14,7 +14,7 @@
 .logo {
   font-weight: 600;
   font-size: 25px;
-  color: rgb(0, 0, 0);
+  color: white;
 }
 
 .menu-icon {
