@@ -12,7 +12,9 @@ const Homepage = (props) => {
       </div>
       <div className="flex-container">
         <div className="flex-child leftchild">
-          <p className="hpwords">Where are you from?</p>
+          <p className="hpwords">
+            Where are you <span style={{ color: "#01aacd" }}>from</span>?
+          </p>
           <SelectCity
             cities={props.cities}
             city={props.cityFrom}
@@ -20,7 +22,9 @@ const Homepage = (props) => {
           />
         </div>
         <div className="flex-child rightchild">
-          <p className="hpwords">Where do you want to go?</p>
+          <p className="hpwords">
+            Where do you want to <span style={{ color: "#01aacd" }}>go</span>?
+          </p>
           <SelectCity
             cities={props.cities}
             city={props.cityTo}
