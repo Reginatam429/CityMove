@@ -5,11 +5,13 @@ const Homepage = (props) => {
   return (
     <div>
       <div>
-        <p className="title">CityMove</p>
-        <p className="hpwords">Compare your cities before moving</p>
+        <h1 className="title">CityMove</h1>
+        <p className="hptagline">
+          Compare your cities and weigh your options before moving.
+        </p>
       </div>
       <div className="flex-container">
-        <div className="flex-child">
+        <div className="flex-child leftchild">
           <p className="hpwords">Where are you from?</p>
           <SelectCity
             cities={props.cities}
@@ -17,7 +19,7 @@ const Homepage = (props) => {
             onCitySelected={props.setCityFrom}
           />
         </div>
-        <div className="flex-child">
+        <div className="flex-child rightchild">
           <p className="hpwords">Where do you want to go?</p>
           <SelectCity
             cities={props.cities}

@@ -13,6 +13,7 @@ const SelectCity = (props) => {
     <div>
       <form>
         <select
+          className="select-css"
           onChange={onSelectChanged}
           value={props.city.city_id}
           defaultValue="default"
