@@ -23,7 +23,11 @@ const AttractionList = (props) => {
           props.attractions.attraction.map((attraction) => {
             return (
               <div className="center">
-                <h3 className="attraction-title">{attraction.name}</h3>
+                <h3 className="attraction-title">
+                  {/* <a href={"www.google.com/search?q=" + attraction.name}> */}
+                  {attraction.name}
+                  {/* </a> */}
+                </h3>
                 <img
                   src={attraction.image_url}
                   width="500"
