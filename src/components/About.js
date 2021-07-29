@@ -7,7 +7,13 @@ function About() {
       <header>
         <h1>About CityMove</h1>
       </header>
-      <img src={aboutimg} width="600" height="200" alt="CityMove about" />
+      <img
+        src={aboutimg}
+        width="600"
+        height="200"
+        alt="CityMove about"
+        className="aboutimg"
+      />
       <p>
         {" "}
         CityMove is an app to help people who want to move or are thinking of
