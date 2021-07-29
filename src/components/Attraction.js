@@ -2,9 +2,6 @@ import React from "react";
 import AttractionList from "./AttractionList";
 
 const Attraction = (props) => {
-  //   console.log(props.attractions);
-  //   const attraction = props.attractions.attraction;
-
   return (
     <div className="attraction">
       <header className="center">

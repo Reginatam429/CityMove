@@ -50,10 +50,10 @@
 }
 
 .leftchild {
-  margin: 0px 0px 50px 150px;
+  margin: 0px 0px 20px 150px;
 }
 .rightchild {
-  margin: 0px 150px 50px 0px;
+  margin: 0px 150px 20px 0px;
 }
 
 .select-box {
@@ -151,6 +151,11 @@
   height: 40px;
 }
 
+.about {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  margin: 50px 20px 100px 20px;
+}
 @media all and (max-width: 900px) and (min-width: 300px) {
   .resultsContent {
     margin: 50px 20px 100px 20px;
